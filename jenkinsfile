@@ -2,18 +2,21 @@ pipeline {
 agent {
 docker {
 image 'node:14'
-}}
+}
+}
 stages {
-stage( 'Clone repository') (
+stage( 'Clone repository') {
 steps {
 git branch: 'main' ,
 url: 'https://github.com/aces-csa/PES1UG20CS530_jenkins.git'
-}}
+}
+}
 
 stage( 'Install dependencies') {
 steps{
 sh 'npm install'
-}}
+}
+}
 
 stage( 'Build application') {
 steps {
