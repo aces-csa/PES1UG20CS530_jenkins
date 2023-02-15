@@ -1,1 +1,36 @@
+pipeline (
+agent {
+docker {
+image ' node: 14'
+}}
+stages {
+stage( 'Clone ) (
+steps {
+git branch: 'main • ,
+url: 'https://github.com/cuser»/crepo>.git'
+}}
 
+stage( 'Install dependencies') {
+steps{
+sh 'npm install'
+}}
+
+stage( 'Build application') {
+steps {
+Sh 'npm run build'
+}
+}
+stage( 'Test application') {
+steps{
+sh npm test'
+}
+}
+stage( 'Push Docker image') {
+steps{
+sh 'docker build -t  pes1ug20cs530/task4:$BUILD_NUMBER . '
+sh 'docker push  pes1ug20cs530/task4:$BUILD_NUMBER'
+}
+}
+}
+}
+ 
