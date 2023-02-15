@@ -1,39 +1,21 @@
 pipeline {
-agent {
-docker {
-image 'node:14'
-}
-}
+agent any
 stages {
-stage( 'Clone repository') {
-steps {
-git branch: 'main' ,
-url: 'https://github.com/aces-csa/PES1UG20CS530_jenkins.git'
-}
-}
 
-stage( 'Install dependencies') {
-steps{
-sh 'npm install'
-}
-}
+
+
 
 stage( 'Build application') {
 steps {
-sh 'npm run build'
+sh 'g++ hello_world.cpp'
 }
 }
 stage( 'Test application') {
 steps{
-sh 'npm test'
+sh './a.out'
 }
 }
-stage( 'Push Docker image') {
-steps{
-sh 'docker build -t  pes1ug20cs530/task4:$BUILD_NUMBER . '
-sh 'docker push  pes1ug20cs530/task4:$BUILD_NUMBER'
-}
-}
+
 }
 }
  
