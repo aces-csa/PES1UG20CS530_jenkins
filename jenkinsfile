@@ -1,13 +1,13 @@
 pipeline (
 agent {
 docker {
-image ' node: 14'
+image 'node:14'
 }}
 stages {
-stage( 'Clone ) (
+stage( 'Clone repository') (
 steps {
-git branch: 'main • ,
-url: 'https://github.com/cuser»/crepo>.git'
+git branch: 'main' ,
+url: 'https://github.com/aces-csa/PES1UG20CS530_Jenkins.git'
 }}
 
 stage( 'Install dependencies') {
@@ -22,7 +22,7 @@ Sh 'npm run build'
 }
 stage( 'Test application') {
 steps{
-sh npm test'
+sh 'npm test'
 }
 }
 stage( 'Push Docker image') {
