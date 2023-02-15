@@ -1,7 +1,12 @@
 pipeline {
 agent any
 stages {
-
+ stage ('Clone reposiory'){
+ steps{
+  git branch : 'main',
+  url : 'https://github.com/aces-csa/PES1UG20CS530_jenkins.git'
+}
+ }
 
 
 
