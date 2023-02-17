@@ -18,9 +18,14 @@ sh 'g++ hello_world.cpp'
 stage( 'Test application') {
 steps{
 sh './a.out'
+sh 'failure ' 
 }
 }
-
+post{
+    failure{
+         echo "pipeline failed "
+    }
+}
 }
 }
  
