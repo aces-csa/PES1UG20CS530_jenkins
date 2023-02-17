@@ -21,8 +21,8 @@ sh './a.out'
 sh 'failure ' 
 }
 }
-post{
-    failure{
+post {
+    failure {
          echo "pipeline failed "
     }
 }
